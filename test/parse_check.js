@@ -50,7 +50,7 @@ console.log(JSON.stringify(acl.rules , null, "\t"));
 
 describe('Rights', function() {
 
-  describe('User with roles [guest] has not "GetUser" permission ', function() {
+  describe('User with roles [guest] has not "GetUser" permission', function() {
     it('should return true', function() {
       assert.equal(false, acl.check(['guest'], 'user', 'GetUser'));
     });
@@ -72,6 +72,12 @@ describe('Rights', function() {
   describe('User with roles [moderator] can access "GET /user/:userId/update" route ', function() {
     it('should return true', function() {
       assert.equal(true, acl.checkRoute(['moderator'], '/user/:userId/update','GET'));
+    });
+  });
+
+  describe('User with roles [moderator, guest] can access "GET+POST /user/:userId/update" route ', function() {
+    it('should return true', function() {
+      assert.equal(true, acl.checkRoute(['moderator'], '/user/:userId/update', ['GET', 'POST']));
     });
   });
 
