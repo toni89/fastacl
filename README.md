@@ -84,7 +84,7 @@ acl.checkRoute(['admin'], '/user/:userId/update','GET') // false
 ```javascript
 // Default values
 app.use(acl.middleware({
-  roles: 'jwt.payload.rls',             // Path to roles array in req
+  roles: 'jwt.payload.rls',     // Path to roles array in req
   errorStatus: 403,
   errorCode: 'NotAuthorized',
   errorMsg: 'This route is restricted'
