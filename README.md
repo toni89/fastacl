@@ -82,13 +82,13 @@ acl.checkRoute(['admin'], '/user/:userId/update','GET') // false
 
 #### Documentation
 
-* parse(rules) - Add rules
+* **parse(rules)** - Add rules
   * rules - Array with rules given in special format (see example above)
-* check(roles, scope, permissions) - Test scopes for rules
+* **check(roles, scope, permissions)** - Test scopes for rules
   * roles - String or Array
   * scope - String
   * permissions - String or Array
-* checkRoute(roles, route, methods) - Test routes for rules
+* **checkRoute(roles, route, methods)** - Test routes for rules
   * roles - String or Array
   * route - String
   * methods - String or Array
