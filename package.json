@@ -1,7 +1,7 @@
 {
   "name": "fastacl",
   "description": "Role based ACL",
-  "version": "0.2.2",
+  "version": "0.1.0",
   "main": "./lib/FastACL.js",
   "license": "MIT",
   "author": {
@@ -23,5 +23,11 @@
     "user",
     "group",
     "role"
-  ]
+  ],
+  "scripts": {
+    "test": "mocha test/parse_check.js"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
 }

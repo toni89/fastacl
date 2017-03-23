@@ -10,14 +10,15 @@ let rules = [
       { scope: 'user', permissions: [  'DeleteUser', 'CreateUser' ] }
     ],
     refuse: [
-      { scope: 'user', permissions: [  'ModerateSomething' ] }
+      { scope: 'user', permissions: [  'ModeratePost' ] }
     ]
   },
 
   {
-    roles: ['moderator', 'admin'],
+    roles: ['admin','moderator'],
     allow: [
-      { scope: 'user', permissions: [ 'GetAnyUser', 'ModerateSomething' ] }
+      { scope: 'user', permissions: [ 'GetAnyUser', 'ModeratePost'] },
+      { route: '/user/:userId/update', methods: [ 'GET', 'POST'] }
     ]
   },
 
@@ -27,19 +28,14 @@ let rules = [
       { scope: 'user', permissions: [ 'GetUser' ] }
     ]
   },
-
+  
   {
-    roles: ['guest'],
+    roles: ['guest', 'user', 'moderator', 'admin'],
     allow: [
-      {
-        scope: 'NoAuth',
-        permissions: [
-        'POST /user/auth',        // Login
-        'POST /user',             // Register
-        'PATCH /user/password',   // Reset Password
-        'GET /system/datetime'    // Get time
-      ]
-    }]
+      { route: '/user/auth', methods: ['POST'] },      // Login 
+      { route: '/user', methods: ['POST'] },           // Register
+      { route: '/user/password', methods: ['PATCH'] }  // Reset password 
+    ]
   }
 ];
 ```
