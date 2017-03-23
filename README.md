@@ -1,18 +1,18 @@
 # FastACL - Role based ACL
 
-### Features
+## Features
 * Simple & Fast
 * No third party dependencies
 * Inherit and refuse rights
 * Seperation of routes and scopes
 
-### Install (via npm)
+## Install (via npm)
 
 ```bash
 npm install --save better-queue
 ```
 
-### Quick Example
+## Quick Example
 ```javascript
 let rules = [
   {
@@ -80,7 +80,7 @@ acl.checkRoute(['moderator'], '/user/:userId/update', ['GET', 'POST'])
 acl.checkRoute(['admin'], '/user/:userId/update','GET') // false
 ```
 
-### Documentation
+## Documentation
 
 * **parse(rules)** - Add rules
   * rules - Array with rules given in special format (see example above)
