@@ -51,14 +51,14 @@ let rules = [
 ];
 ```
 
-Add Rules
+### Add Rules
 ```javascript
 let FastACL = require('fastacl');
 let acl = new FastACL();
 acl.parse(rules);
 ```
 
-Test Rules
+### Test Rules
 ```javascript
 // User with roles [guest] has not "GetUser" permission 
 acl.check(['guest'], 'user', 'GetUser');  // false
