@@ -9,7 +9,7 @@
 ## Install (via npm)
 
 ```bash
-npm install --save better-queue
+npm install --save fastacl
 ```
 
 ## Quick Example
