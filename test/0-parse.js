@@ -47,6 +47,9 @@ let rules = [
 
 let acl = new FastACL();
 acl.rules(rules);
-console.log(acl.checkScopePermission(['user','admin'],'user','DeleteUser'));
-console.log(acl.checkRoutePermission(['user','admin'],'/user/:userId/update','GET'));
-console.log(acl.checkRoutePermission(['user'],'/user/:userId/update','GET'));
+console.log(acl.checkScope(['user','admin'],'user','DeleteUser'));
+console.log(acl.checkRoute(['user','admin'],'/user/:userId/update','GET'));
+console.log(acl.checkRoute(['user'],'/user/:userId/update','GET'));
+
+
+console.log(acl.checkScope('admin','user','ModerateSomething'));
