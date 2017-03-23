@@ -15,7 +15,7 @@ let rules = [
   },
 
   {
-    roles: ['moderator', 'admin'],
+    roles: ['admin','moderator'],
     allow: [
       { scope: 'user', permissions: [ 'GetAnyUser', 'ModerateSomething'] },
       { route: '/user/:userId/update', methods: [ 'GET', 'POST'] }
@@ -47,3 +47,6 @@ let rules = [
 
 let acl = new FastACL();
 acl.rules(rules);
+console.log(acl.checkScopePermission(['user','admin'],'user','DeleteUser'));
+console.log(acl.checkRoutePermission(['user','admin'],'/user/:userId/update','GET'));
+console.log(acl.checkRoutePermission(['user'],'/user/:userId/update','GET'));
