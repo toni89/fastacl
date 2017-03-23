@@ -89,6 +89,10 @@ app.use(acl.middleware({
   errorCode: 'NotAuthorized',
   errorMsg: 'This route is restricted'
 }));
+
+// or 
+app.use(acl.middleware());
+
 ```
 
 ## Documentation
