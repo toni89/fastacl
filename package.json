@@ -1,0 +1,27 @@
+{
+  "name": "fastacl",
+  "description": "Role based ACL",
+  "version": "0.2.2",
+  "main": "./lib/FastACL.js",
+  "license": "MIT",
+  "author": {
+    "name": "Anton Hammerschmidt"
+  },
+  "homepage": "https://github.com/toni89/fastacl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toni89/fastacl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toni89/fastacl/issues"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "ACL",
+    "user",
+    "group",
+    "role"
+  ]
+}
