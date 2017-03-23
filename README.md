@@ -2,9 +2,9 @@
 
 ## Features
 * Simple & Fast
-* No third party dependencies
 * Inherit and refuse rights
 * Seperation of routes and scopes
+* Middleware included
 
 ## Install (via npm)
 
@@ -80,6 +80,17 @@ acl.checkRoute(['moderator'], '/user/:userId/update', ['GET', 'POST'])
 acl.checkRoute(['admin'], '/user/:userId/update','GET') // false
 ```
 
+### Middleware
+```javascript
+// Default values
+app.use(acl.middleware({
+  roles: 'jwt.payload.rls',             // Path to roles array in req
+  errorStatus: 403,
+  errorCode: 'NotAuthorized',
+  errorMsg: 'This route is restricted'
+}));
+```
+
 ## Documentation
 
 * **parse(rules)** - Add rules
@@ -92,3 +103,8 @@ acl.checkRoute(['admin'], '/user/:userId/update','GET') // false
   * roles - String or Array
   * route - String
   * methods - String or Array
+* **middleware(options)** - Express/Restify middleware
+  * options.roles - Path to roles array in req (default: *jwt.payload.rls*)
+  * options.errorStatus - HTTP status for error answer (default: *403*)
+  * options.errorCode - Error answer includes code field (default: *NotAuthorized*)
+  * options.errorMsg - Error answer includes message field (default: *This route is restricted*)

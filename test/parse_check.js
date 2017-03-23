@@ -51,7 +51,7 @@ console.log(JSON.stringify(acl.rules , null, "\t"));
 describe('Rights', function() {
 
   describe('User with roles [guest] has not "GetUser" permission', function() {
-    it('should return true', function() {
+    it('should return false', function() {
       assert.equal(false, acl.check(['guest'], 'user', 'GetUser'));
     });
   });
@@ -82,26 +82,32 @@ describe('Rights', function() {
   });
 
   describe('User with roles [admin] can not access "GET /user/:userId/update" route ', function() {
-    it('should return true', function() {
+    it('should return false', function() {
       assert.equal(false, acl.checkRoute(['admin'], '/user/:userId/update','GET'));
     });
   });
 
   describe('User with unknown roles [superadmin] dont causes Exceptions', function() {
-    it('should return true', function() {
+    it('should return false', function() {
       assert.equal(false, acl.checkRoute(['superadmin'], '/user/:userId/update','GET'));
     });
   });
 
   describe('User with roles [admin] and unknown route [/blog] dont causes Exceptions', function() {
-    it('should return true', function() {
+    it('should return false', function() {
       assert.equal(false, acl.checkRoute(['admin'], '/blog','GET'));
     });
   });
 
   describe('User with roles [admin] and unknown method [PUT] dont causes Exceptions', function() {
-    it('should return true', function() {
+    it('should return false', function() {
       assert.equal(false, acl.checkRoute(['admin'], '/user/:userId/update', 'PUT'));
+    });
+  });
+
+  describe('User with roles [admin] and unknown method [PUT] dont causes Exceptions', function() {
+    it('should return false', function() {
+      assert.equal(false, acl.checkRoute(['admin'], undefined, 'POST'));
     });
   });
 
