@@ -17,7 +17,8 @@ let rules = [
   {
     roles: ['moderator', 'admin'],
     allow: [
-      { scope: 'user', permissions: [ 'GetAnyUser', 'ModerateSomething' ] }
+      { scope: 'user', permissions: [ 'GetAnyUser', 'ModerateSomething'] },
+      { route: '/user/:userId/update', methods: [ 'GET', 'POST'] }
     ]
   },
 
