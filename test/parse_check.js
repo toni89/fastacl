@@ -5,7 +5,7 @@ let FastACL = require('./../lib/FastACL');
 
 let rules = [
   {
-    rules: ['admin'],
+    roles: ['admin'],
     allow: [
       { scope: 'user', permissions: [  'DeleteUser', 'CreateUser' ] }
     ],
@@ -16,7 +16,7 @@ let rules = [
   },
 
   {
-    rules: ['admin','moderator'],
+    roles: ['admin','moderator'],
     allow: [
       { scope: 'user', permissions: [ 'GetAnyUser', 'ModeratePost'] },
       { route: '/user/:userId/update', methods: [ 'GET', 'POST'] }
@@ -24,14 +24,14 @@ let rules = [
   },
 
   {
-    rules: ['user', 'moderator', 'admin'],
+    roles: ['user', 'moderator', 'admin'],
     allow: [
       { scope: 'user', permissions: [ 'GetUser' ] }
     ]
   },
 
   {
-    rules: ['guest', 'user', 'moderator', 'admin'],
+    roles: ['guest', 'user', 'moderator', 'admin'],
     allow: [
       { route: '/user/auth', methods: ['POST'] },         // Login
       { route: '/user', methods: ['POST'] },              // Register
